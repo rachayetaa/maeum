@@ -267,11 +267,15 @@ async function submitReport(){
 
 renderPosts();
 renderDiary();
-  
-<section class="about-maeum">
-  <h2>Why I Created MAEUM</h2>
+</script>
 
-  <p>
+<section class="section" id="about">
+  <div class="eyebrow">A little about this space</div>
+  <h2 style="font-family:Georgia,serif;font-size:34px;font-weight:500;color:var(--deep);">
+    Why I Created MAEUM
+  </h2>
+
+  <p style="max-width:680px;color:#697a6c;font-size:15px;line-height:1.8;">
     I created MAEUM for those moments when you have
     so much to say but nowhere to put it. A place to
     let your thoughts out, share what you can't tell
@@ -279,12 +283,16 @@ renderDiary();
     of being judged.
   </p>
 
-  <p>Sometimes, all we need is a space that listens.</p>
+  <p style="font-family:Georgia,serif;color:var(--deep);font-size:18px;">
+    Sometimes, all we need is a space that listens.
+  </p>
 
-  <div class="korean-translation" lang="ko">
-    <h3>마음을 만든 이유</h3>
+  <div style="margin-top:24px;padding:22px;background:var(--pale);border:1px solid var(--line);border-radius:18px;max-width:680px;" lang="ko">
+    <h3 style="font-family:Georgia,serif;font-weight:500;color:var(--deep);">
+      마음을 만든 이유
+    </h3>
 
-    <p>
+    <p style="color:#697a6c;font-size:14px;line-height:1.9;">
       하고 싶은 말은 많지만 어디에도 털어놓을 곳이
       없는 순간들을 위해 MAEUM을 만들었어요.
       마음속 생각을 꺼내놓고, 누구에게도 말하지
@@ -292,8 +300,40 @@ renderDiary();
       조금은 가벼워질 수 있는 공간이 되기를 바랐어요.
     </p>
 
-    <p>때로는 그저 우리의 이야기를 들어주는 공간이 필요하니까요.</p>
+    <p style="font-family:Georgia,serif;color:var(--deep);">
+      때로는 그저 우리의 이야기를 들어주는 공간이 필요하니까요.
+    </p>
   </div>
 </section>
-</script>
-</body></html>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <strong>MAEUM</strong>
+    <div>A little space to feel, write, and heal.</div>
+    <div style="margin-top:9px">느끼고, 쓰고, 치유하는 작은 공간</div>
+    <div style="margin-top:6px">마음 · heart &amp; mind</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<div class="modal" id="reportModal">
+  <div class="modal-card">
+    <h3>Report this note?</h3>
+    <p style="color:var(--muted);font-size:13px">
+      In the live version, reports should go to a moderation queue.
+      This demo only shows the flow.
+    </p>
+    <textarea id="reportReason" class="field" placeholder="Optional reason" rows="3"></textarea>
+    <div class="row">
+      <button class="btn" onclick="submitReport()">Send report</button>
+      <button class="btn ghost" onclick="closeReport()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
