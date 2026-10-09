@@ -150,8 +150,6 @@ async function addPost() {
   }
 }
 
-
-
 async function likePost(id) {
   try {
     const r = await fetch(api('rpc/increment_post_like'), {
@@ -172,23 +170,12 @@ async function likePost(id) {
   }
 }
 
-
-
-    if (!r.ok) {
-      throw Error(await r.text());
-    }
-
-    await renderPosts();
-  } catch (e) {
-    showToast('Could not add a heart. Please try again.');
-  }
-  }
-
-function loadSamples(){
-  localStorage.setItem('maeum_posts',JSON.stringify(samplePosts));
+function loadSamples() {
+  localStorage.setItem('maeum_posts', JSON.stringify(samplePosts));
   renderPostCards(samplePosts);
   showToast('Sample notes restored on this device.');
 }
+
 
 function showToast(t){
   const el=document.getElementById('toast');
