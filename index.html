@@ -133,8 +133,8 @@ async function addPost(){
   }
 }
 
-async function likePost(id){
-  async function likePost(id) {
+
+async function likePost(id) {
   try {
     const r = await fetch(api('rpc/increment_post_like'), {
       method: 'POST',
@@ -143,6 +143,18 @@ async function likePost(id){
         post_id: Number(id)
       })
     });
+
+    if (!r.ok) {
+      throw Error(await r.text());
+    }
+
+    await renderPosts();
+  } catch (e) {
+    showToast('Could not add a heart. Please try again.');
+  }
+}
+
+
 
     if (!r.ok) {
       throw Error(await r.text());
