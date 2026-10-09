@@ -32,7 +32,29 @@ const headers=(extra={})=>({
 });
 
 let selectedMood='🌿 thoughtful',diaryMood='🌿 thoughtful',reportingId=null;
+const POST_COOLDOWN_MS = 30000;
+const POST_COOLDOWN_KEY = 'maeum_last_post_attempt';
+let postInFlight = false;
 
+function cooldownRemaining() {
+  const last = Number(localStorage.getItem(POST_COOLDOWN_KEY) || 0);
+  return Math.max(0, POST_COOLDOWN_MS - (Date.now() - last));
+}
+
+function updateShareButton() {
+  const btn = document.querySelector('#write button[onclick="addPost()"]');
+  if (!btn) return;
+
+  const seconds = Math.ceil(cooldownRemaining() / 1000);
+  btn.disabled = postInFlight || seconds > 0;
+  btn.textContent = postInFlight
+    ? 'Sharing…'
+    : seconds > 0
+      ? `Wait ${seconds}s`
+      : 'Share anonymously ↗';
+}
+
+setInterval(updateShareButton, 1000);
 const samplePosts=[
 {id:'s1',mood:'🌱 hopeful',text:'I did one small thing I was scared of today. It might not look like much, but I am proud of myself.',likes:8},
 {id:'s2',mood:'☁️ heavy',text:'Some days I do not need advice. I just wish someone would sit beside me and say it is okay to feel this way.',likes:12},
