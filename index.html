@@ -105,33 +105,51 @@ async function renderPosts(){
   renderPostCards(await getPosts());
 }
 
-async function addPost(){
-  const el=document.getElementById('postText');
-  const t=el.value.trim();
-  if(!t){showToast('Write a little note first.');return}
+  
+async function addPost() {
+  const el = document.getElementById('postText');
+  const t = el.value.trim();
 
-  try{
-    const r=await fetch(api('posts'),{
-      method:'POST',
-      headers:headers({'Prefer':'return=minimal'}),
-      body:JSON.stringify({mood:selectedMood,text:t,likes:0,status:'published'})
+  if (!t) {
+    showToast('Write a little note first.');
+    return;
+  }
+
+  if (t.length > 500) {
+    showToast('Your note must be 500 characters or fewer.');
+    return;
+  }
+
+  try {
+    const r = await fetch(api('posts'), {
+      method: 'POST',
+      headers: headers({ 'Prefer': 'return=minimal' }),
+      body: JSON.stringify({
+        mood: selectedMood,
+        text: t,
+        likes: 0,
+        status: 'published'
+      })
     });
-    if(!r.ok)throw Error(await r.text());
-    el.value='';
-    document.getElementById('count').textContent='0';
+
+    if (!r.ok) {
+      throw Error(await r.text());
+    }
+
+    el.value = '';
+    document.getElementById('count').textContent = '0';
+
     await renderPosts();
-    document.getElementById('wall').scrollIntoView({behavior:'smooth'});
+    document.getElementById('wall').scrollIntoView({
+      behavior: 'smooth'
+    });
+
     showToast('Your note is now on the shared wall.');
-  }catch(e){
-    let posts=localPosts();
-    posts.unshift({id:'p'+Date.now(),mood:selectedMood,text:t,likes:0});
-    localStorage.setItem('maeum_posts',JSON.stringify(posts));
-    el.value='';
-    document.getElementById('count').textContent='0';
-    renderPostCards(posts);
-    showToast('Saved on this device. Check your database setup if it should be shared.');
+  } catch (e) {
+    showToast('Your note could not be shared. Please try again.');
   }
 }
+
 
 
 async function likePost(id) {
