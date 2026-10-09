@@ -267,6 +267,128 @@ async function submitReport(){
 
 renderPosts();
 renderDiary();
+  
+function initMaeumTimer() {
+  const root = document.querySelector('.maeum-timer');
+  if (!root || root.dataset.ready) return;
+  root.dataset.ready = 'true';
+
+  const display = document.getElementById('maeumTimerDisplay');
+  const label = document.getElementById('maeumTimerLabel');
+  const circle = document.getElementById('maeumTimerCircle');
+  const message = document.getElementById('maeumTimerMessage');
+  const start = document.getElementById('maeumTimerStart');
+  const resetBtn = document.getElementById('maeumTimerReset');
+  const modes = root.querySelectorAll('.timer-mode');
+
+  let duration = 300;
+  let remaining = duration;
+  let deadline = 0;
+  let running = false;
+  let interval = null;
+  let mode = 'Breathe';
+
+  function stop() {
+    if (interval !== null) clearInterval(interval);
+    interval = null;
+  }
+
+  function render() {
+    const min = Math.floor(remaining / 60);
+    const sec = remaining % 60;
+
+    display.textContent =
+      String(min).padStart(2, '0') + ':' +
+      String(sec).padStart(2, '0');
+
+    const degrees = duration
+      ? (remaining / duration) * 360
+      : 0;
+
+    circle.style.setProperty(
+      '--timer-progress', degrees + 'deg'
+    );
+
+    start.textContent = running
+      ? 'Pause session'
+      : remaining === 0
+        ? 'Start again'
+        : 'Start session';
+  }
+
+  function tick() {
+    remaining = Math.max(
+      0, Math.ceil((deadline - Date.now()) / 1000)
+    );
+
+    if (remaining === 0) {
+      running = false;
+      stop();
+      message.textContent =
+        'You showed up for yourself today. Take a gentle breath.';
+    }
+
+    render();
+  }
+
+  function reset() {
+    running = false;
+    stop();
+    remaining = duration;
+    message.textContent =
+      'No pressure. Take a moment for yourself.';
+    render();
+  }
+
+  modes.forEach(button => {
+    button.addEventListener('click', () => {
+      modes.forEach(item => item.classList.remove('active'));
+      button.classList.add('active');
+
+      duration = Number(button.dataset.minutes) * 60;
+      mode = button.dataset.mode;
+      remaining = duration;
+      label.textContent = mode;
+
+      message.textContent = mode === 'Breathe'
+        ? 'Breathe in slowly. Breathe out gently.'
+        : mode === 'Journal'
+          ? 'Give your thoughts a little room.'
+          : 'One thing at a time. You can do this.';
+
+      reset();
+    });
+  });
+
+  start.addEventListener('click', () => {
+    if (running) {
+      tick();
+      if (!running) return;
+
+      running = false;
+      stop();
+      message.textContent =
+        'Paused. Resume whenever you are ready.';
+      render();
+      return;
+    }
+
+    if (remaining === 0) remaining = duration;
+
+    running = true;
+    deadline = Date.now() + remaining * 1000;
+    message.textContent = 'This moment is yours.';
+    render();
+    interval = setInterval(tick, 250);
+  });
+
+  resetBtn.addEventListener('click', reset);
+
+  render();
+}
+
+renderPosts();
+initMaeumTimer();
 </script>
 
 <section class="section" id="about">
