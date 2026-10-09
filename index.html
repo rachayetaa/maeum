@@ -7,6 +7,81 @@
 :root{--deep:#315b49;--green:#6f947c;--sage:#dce9dc;--pale:#eff5ec;--cream:#fbfaf4;--ink:#30463a;--muted:#78877b;--line:#dce5d8;--white:#fffefb;--gold:#d6bd7b;--rose:#f1dfd8}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{max-width:1120px;margin:auto;padding:0 24px}.topbar{position:sticky;top:0;z-index:5;background:#fbfaf4eF;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;color:var(--deep);text-decoration:none}.brand-mark{width:40px;height:40px;border-radius:50% 50% 45% 55%;display:grid;place-items:center;background:var(--sage);font-size:20px}.brand strong{display:block;letter-spacing:.22em;font-family:Georgia,serif;font-size:19px}.brand small{display:block;font-size:10px;letter-spacing:.14em;color:var(--muted)}.navlinks{display:flex;gap:22px;align-items:center}.navlinks a{font-size:13px;color:var(--ink);text-decoration:none}.navlinks a:hover{color:var(--green)}.btn{border:0;border-radius:999px;padding:11px 18px;background:var(--deep);color:white;font-size:13px;transition:.2s}.btn:hover{transform:translateY(-1px);background:#244a39}.btn.secondary{background:var(--sage);color:var(--deep)}.btn.ghost{background:transparent;color:var(--deep);border:1px solid var(--line)}.hero{padding:70px 0 45px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px}.eyebrow{text-transform:uppercase;letter-spacing:.2em;color:var(--green);font-size:11px;font-weight:700}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,6vw,68px);line-height:1.06;letter-spacing:-.04em;margin:15px 0 18px;color:var(--deep);font-weight:500}.hero h1 em{font-weight:400;color:var(--green)}.hero p{max-width:480px;color:#697a6c;font-size:15px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.hero-art{position:relative;min-height:310px;display:grid;place-items:center}.moon{width:210px;height:210px;border-radius:50%;background:#d9e6d5;position:relative;box-shadow:0 0 0 18px #eaf0e4,0 0 0 38px #f2f4e9}.moon:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;background:var(--cream);top:-18px;left:48px}.cloud{position:absolute;width:120px;height:35px;background:#fffefb;border-radius:50px;bottom:55px;left:6%;box-shadow:18px -12px 0 -3px #fffefb,45px 0 0 -5px #fffefb;filter:drop-shadow(0 7px 10px #315b4910)}.cloud.two{left:auto;right:3%;bottom:100px;transform:scale(.7);background:#e6eee2}.star{position:absolute;color:#b9a46b;font-size:18px}.s1{top:35px;right:19%}.s2{bottom:65px;right:23%;font-size:12px}.s3{top:85px;left:13%;font-size:12px}.quote{background:var(--pale);border:1px solid #e3eadf;border-radius:22px;padding:22px 24px;max-width:500px}.quote p{font-family:Georgia,serif;font-size:18px;color:var(--deep);margin:0 0 8px}.quote small{color:var(--muted);font-size:12px}.section{padding:45px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}.section h2{font-family:Georgia,serif;font-size:34px;font-weight:500;color:var(--deep);margin:7px 0}.section-head p{color:var(--muted);font-size:13px;margin:0}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.panel{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 8px 30px #315b4906}.panel h3{margin:0 0 6px;color:var(--deep);font-family:Georgia,serif;font-size:23px;font-weight:500}.sub{color:var(--muted);font-size:12px;margin:0 0 18px}.field{width:100%;border:1px solid var(--line);background:#fdfdf8;border-radius:13px;padding:12px 14px;color:var(--ink);outline:none}.field:focus{border-color:#8aaa91;box-shadow:0 0 0 3px #dce9dc}.field + .field{margin-top:10px}textarea.field{resize:vertical;min-height:105px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}.label{font-size:12px;color:var(--muted)}.tiny{font-size:11px;color:var(--muted)}.wall{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.post{border:1px solid var(--line);border-radius:18px;background:#fffefb;padding:18px;display:flex;flex-direction:column;min-height:185px}.post-top{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:11px;color:var(--muted)}.mood{background:var(--pale);color:var(--green);border-radius:99px;padding:4px 9px}.post p{font-family:Georgia,serif;font-size:16px;line-height:1.6;margin:15px 0 18px;white-space:pre-wrap;overflow-wrap:anywhere}.post-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center}.like{border:1px solid var(--line);border-radius:99px;padding:6px 11px;background:white;color:var(--deep);font-size:12px}.like.liked{background:var(--rose);border-color:var(--rose);color:#925b55}.report{border:0;background:transparent;color:#89968a;font-size:11px}.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px;grid-column:1/-1}.moods{display:flex;gap:8px;flex-wrap:wrap}.mood-btn{border:1px solid var(--line);background:#fffefb;border-radius:99px;padding:8px 11px;color:var(--ink);font-size:12px}.mood-btn.active{background:var(--sage);border-color:#b6ccb8}.diary-note{background:#f7f3e9;border-radius:14px;padding:12px;font-size:12px;color:#7a7869;margin:13px 0}.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tool-card{background:var(--pale);border:1px solid #e3eadf;border-radius:18px;padding:20px}.tool-card .icon{font-size:23px}.tool-card h3{font-size:16px;margin:9px 0 5px;font-family:Georgia,serif;color:var(--deep)}.tool-card p{font-size:12px;color:var(--muted);margin:0}.notice{background:#f8f0e3;border:1px solid #eee2cc;padding:14px 16px;border-radius:14px;font-size:12px;color:#76674b;margin-top:20px}.footer{border-top:1px solid var(--line);padding:30px 0 22px;text-align:center;color:var(--muted);font-size:11px}.footer strong{letter-spacing:.17em;color:var(--deep);display:block;margin-bottom:5px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--deep);color:white;padding:12px 18px;border-radius:99px;font-size:13px;box-shadow:0 8px 30px #0002;display:none;z-index:10;max-width:90vw}.modal{position:fixed;inset:0;background:#1e332a88;display:none;place-items:center;padding:20px;z-index:9}.modal-card{max-width:430px;width:100%;background:var(--cream);border-radius:22px;padding:25px}.modal-card h3{font-family:Georgia,serif;font-weight:500;color:var(--deep)}
 @media(max-width:760px){.nav{height:66px}.navlinks{gap:12px}.navlinks a{display:none}.hero{grid-template-columns:1fr;padding-top:48px;gap:25px}.hero-art{min-height:230px}.moon{width:150px;height:150px}.moon:after{width:140px;height:140px;left:35px;top:-13px}.grid{grid-template-columns:1fr}.wall{grid-template-columns:1fr}.tools{grid-template-columns:1fr}.section{padding:32px 0}.section-head{align-items:start;flex-direction:column}.quote{margin-top:10px}}
+  
+.maeum-timer {
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px 16px;
+}
+
+.maeum-timer h3 {
+  font: 28px Georgia, serif;
+  color: var(--deep);
+}
+
+.maeum-timer > p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.timer-circle {
+  width: 200px;
+  height: 200px;
+  max-width: 70vw;
+  max-height: 70vw;
+  margin: 25px auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(var(--deep) var(--timer-progress, 360deg), var(--line) 0deg);
+}
+
+.timer-inner {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#maeumTimerDisplay {
+  font-size: 42px;
+  color: var(--deep);
+  font-variant-numeric: tabular-nums;
+}
+
+#maeumTimerLabel,
+.timer-message {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.timer-modes,
+.timer-actions {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.timer-mode {
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: 14px;
+  padding: 10px 12px;
+  color: var(--deep);
+}
+
+.timer-mode.active {
+  background: var(--sage);
+}
+
 </style>
 </head>
 <body>
@@ -17,6 +92,42 @@
 <section class="section" id="write"><div class="section-head"><div><div class="eyebrow">Your words are welcome</div><h2>Leave a little note</h2><p>Share a feeling without sharing your name.</p></div><span class="tiny">Anonymous by default · Be gentle with each other</span></div><div class="grid"><div class="panel"><h3>What is on your heart?</h3><p class="sub">You can write a small thought, a hard day, or a tiny win.</p><div class="moods" id="moods"><button class="mood-btn active" data-mood="🌿 thoughtful">🌿 Thoughtful</button><button class="mood-btn" data-mood="☁️ heavy">☁️ Heavy</button><button class="mood-btn" data-mood="🌱 hopeful">🌱 Hopeful</button><button class="mood-btn" data-mood="🌙 quiet">🌙 Quiet</button><button class="mood-btn" data-mood="☀️ happy">☀️ Happy</button></div><textarea id="postText" class="field" maxlength="500" placeholder="Today, I feel... (up to 500 characters)" style="margin-top:14px"></textarea><div class="row" style="justify-content:space-between"><span class="tiny"><span id="count">0</span>/500 characters</span><button class="btn" onclick="addPost()">Share anonymously ↗</button></div><p class="tiny" style="margin:13px 0 0">Please do not include your full name, address, phone number, or other identifying details.</p></div><div class="panel" style="background:var(--pale)"><h3>A note before you share</h3><p style="color:#65776a;font-size:14px">You don't have to make your feelings sound beautiful. You can just let them be here.</p><div style="font-family:Georgia,serif;color:var(--deep);font-size:20px;line-height:1.55;margin:25px 0">“You are allowed to take your time becoming yourself.”</div><span class="tiny">A small reminder from MAEUM</span><div class="notice">Community notes are shared through MAEUM. Private diary entries stay only on this device.</div></div></div></section>
 <section class="section" id="wall"><div class="section-head"><div><div class="eyebrow">A shared, gentle space</div><h2>The little wall</h2><p>Read notes, leave a like, and make someone feel seen.</p></div><button class="btn secondary" onclick="loadSamples()">Restore sample notes</button></div><div class="wall" id="wallPosts"></div><p class="tiny" style="margin-top:12px">Community notes and hearts are shared through MAEUM.</p></section>
 <section class="section" id="diary"><div class="section-head"><div><div class="eyebrow">Just for you</div><h2>Your private diary</h2><p>A quiet page that stays in this browser in this prototype.</p></div></div><div class="grid"><div class="panel"><h3>Today's page</h3><p class="sub">Choose a mood and write without judgement.</p><div class="moods" id="diaryMoods"><button class="mood-btn active" data-mood="🌿 thoughtful">🌿 Thoughtful</button><button class="mood-btn" data-mood="☁️ heavy">☁️ Heavy</button><button class="mood-btn" data-mood="🌱 hopeful">🌱 Hopeful</button><button class="mood-btn" data-mood="🌙 quiet">🌙 Quiet</button><button class="mood-btn" data-mood="☀️ happy">☀️ Happy</button></div><textarea id="diaryText" class="field" placeholder="Dear me..." style="margin-top:14px;min-height:140px"></textarea><div class="row"><button class="btn" onclick="saveDiary()">Save in this browser</button><button class="btn ghost" onclick="clearDiary()">Clear page</button></div><div class="diary-note">Privacy note: this is a simple local demo, not an encrypted or account-backed diary. Do not store highly sensitive information here. Clearing browser data may remove saved entries.</div></div><div class="panel"><h3>Your saved pages</h3><p class="sub">Saved locally on this device/browser.</p><div id="diaryList"><div class="empty">Your pages will appear here after you save one.</div></div></div></div></section>
+  
+<section class="section" id="mindful-timer">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">마음의 시간 · TIME FOR YOURSELF</div>
+      <h2>Your quiet corner</h2>
+      <p>A little space to breathe, feel, and begin again.</p>
+    </div>
+  </div>
+
+  <div class="maeum-timer">
+    <h3>A little pause.</h3>
+    <p>Take a deep breath. Give yourself a moment.</p>
+
+    <div class="timer-circle" id="maeumTimerCircle">
+      <div class="timer-inner">
+        <div id="maeumTimerDisplay">05:00</div>
+        <span id="maeumTimerLabel">Breathe</span>
+      </div>
+    </div>
+
+    <div class="timer-modes">
+      <button class="timer-mode active" data-minutes="5" data-mode="Breathe">Breathe · 5 min</button>
+      <button class="timer-mode" data-minutes="10" data-mode="Journal">Journal · 10 min</button>
+      <button class="timer-mode" data-minutes="25" data-mode="Focus">Focus · 25 min</button>
+    </div>
+
+    <div class="timer-actions">
+      <button class="btn" id="maeumTimerStart">Start session</button>
+      <button class="btn ghost" id="maeumTimerReset">Reset</button>
+    </div>
+
+    <p id="maeumTimerMessage" class="timer-message">No pressure. Take a moment for yourself.</p>
+  </div>
+</section>
+
 <section class="section" id="care"><div class="section-head"><div><div class="eyebrow">Little rituals</div><h2>Take a softer moment</h2><p>Small things that can make today feel a little lighter.</p></div></div><div class="tools"><div class="tool-card"><div class="icon">☁️</div><h3>Name the feeling</h3><p>Try writing one word for what you feel right now, without judging it.</p></div><div class="tool-card"><div class="icon">🌱</div><h3>One kind thing</h3><p>Write down one small thing you did today that deserves kindness.</p></div><div class="tool-card"><div class="icon">🌙</div><h3>Take a pause</h3><p>Relax your shoulders and take a few comfortable, unhurried breaths.</p></div></div></section>
 </main><footer class="footer"><div class="wrap"><div>A little space to feel, write, and heal.</div><div style="margin-top:9px">느끼고, 쓰고, 치유하는 작은 공간</div><div style="margin-top:6px">마음 · heart &amp; mind</div></div></footer>
 <div class="toast" id="toast" role="status"></div><div class="modal" id="reportModal"><div class="modal-card"><h3>Report this note?</h3><p style="color:var(--muted);font-size:13px">In the live version, reports should go to a moderation queue. This demo only shows the flow.</p><textarea id="reportReason" class="field" placeholder="Optional reason" rows="3"></textarea><div class="row"><button class="btn" onclick="submitReport()">Send report</button><button class="btn ghost" onclick="closeReport()">Cancel</button></div></div></div>
