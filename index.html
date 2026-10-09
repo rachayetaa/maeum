@@ -134,27 +134,25 @@ async function addPost(){
 }
 
 async function likePost(id){
-  try{
-    const r=await fetch(api('posts')+`?id=eq.${encodeURIComponent(id)}&select=likes`,{headers:headers()});
-    const rows=await r.json();
-    if(!r.ok||!rows.length)throw Error('Post not found');
-
-    const u=await fetch(api('posts')+`?id=eq.${encodeURIComponent(id)}`,{
-      method:'PATCH',
-      headers:headers({'Prefer':'return=minimal'}),
-      body:JSON.stringify({likes:(rows[0].likes||0)+1})
+  async function likePost(id) {
+  try {
+    const r = await fetch(api('rpc/increment_post_like'), {
+      method: 'POST',
+      headers: headers(),
+      body: JSON.stringify({
+        post_id: Number(id)
+      })
     });
-    if(!u.ok)throw Error(await u.text());
+
+    if (!r.ok) {
+      throw Error(await r.text());
+    }
+
     await renderPosts();
-  }catch(e){
-    let p=localPosts(),item=p.find(x=>x.id===id);
-    if(!item)return;
-    item.liked=!item.liked;
-    item.likes=Math.max(0,(item.likes||0)+(item.liked?1:-1));
-    localStorage.setItem('maeum_posts',JSON.stringify(p));
-    renderPostCards(p);
+  } catch (e) {
+    showToast('Could not add a heart. Please try again.');
   }
-}
+  }
 
 function loadSamples(){
   localStorage.setItem('maeum_posts',JSON.stringify(samplePosts));
